@@ -1,5 +1,11 @@
 #!/bin/bash
 
-echo "the file name  is : $0"
-echo " the command is : $1"
-echo " the argument is : $2"
+argument=("$@")
+if [ ${#argument[@]} -eq 0 ] ; then
+    echo "no argument provided"
+    exit 1
+fi
+for ((i =0; i<${#argument[@]};i++ )); do
+echo "this is the $i th command: ${argument[i]}"
+done
+echo "this is the first command :${argument[0]}"
